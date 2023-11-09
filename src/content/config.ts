@@ -10,6 +10,38 @@ const teamCollection = defineCollection({
   }),
 });
 
+const pagesCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    meta: z.object({
+      title: z.string(),
+      description: z.string(),
+    }),
+    hero: z
+      .object({
+        title: z.string(),
+        description: z.string(),
+        image: z.string().url().optional(),
+      })
+      .optional(),
+    faqs: z
+      .array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          questions: z.array(
+            z.object({
+              question: z.string(),
+              answer: z.string(),
+            })
+          ),
+        })
+      )
+      .optional(),
+  }),
+});
+
 export const collections = {
   team: teamCollection,
+  pages: pagesCollection,
 };

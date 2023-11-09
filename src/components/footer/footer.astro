@@ -1,6 +1,6 @@
 ---
 import Logo from "@assets/logo.svg";
-import { config } from "@config/index";
+import { config, footerMenu } from "@config/index";
 import { Image } from "astro:assets";
 ---
 
@@ -11,68 +11,43 @@ import { Image } from "astro:assets";
   <h2 id="footer-heading" class="sr-only">Footer</h2>
   <div class="mx-auto max-w-8xl px-5vw pb-8 pt-16 sm:pt-24">
     <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-      <Image src={Logo} alt={config.site.title} class="h-20 w-auto" />
-      <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-        <div class="md:grid md:grid-cols-2 md:gap-8">
-          <div>
-            <h3 class="text-base font-semibold leading-6">Leistungen</h3>
-            <ul role="list" class="mt-6 space-y-2">
-              <li>
-                <a
-                  href="#"
-                  class="text-sm leading-6 font-semibold text-foreground/80 hover:text-foreground/90 underlined"
-                >
-                  Marketing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-sm leading-6 font-semibold text-foreground/80 hover:text-foreground/90 underlined"
-                >
-                  Marketing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-sm leading-6 font-semibold text-foreground/80 hover:text-foreground/90 underlined"
-                >
-                  Marketing
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="mt-10 md:mt-0">
-            <h3 class="text-base font-semibold leading-6">Rechtliches</h3>
-            <ul role="list" class="mt-6 space-y-4">
-              <li>
-                <a
-                  href="#"
-                  class="text-sm leading-6 text-foreground/80 hover:text-foreground/90"
-                >
-                  Impressum
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-sm leading-6 text-foreground/80 hover:text-foreground/90"
-                >
-                  Datenschutz
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-sm leading-6 text-foreground/80 hover:text-foreground/90"
-                >
-                  AGB
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="space-y-8">
+        <Image src={Logo} alt={config.site.title} class="h-20 w-auto" />
+        <address class="text-sm leading-6 text-foreground/80">
+          <p>
+            „BESTMED 360“ Zentrum für Arbeitsmedizin, Arbeitssicherheit und
+            Prävention
+          </p>
+           Kurfürstendamm 106, 10711 Berlin
+        </address>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 gap-8 xl:col-span-2 xl:mt-0">
+        <nav
+          class="md:grid md:grid-cols-3 md:gap-8"
+          aria-label="Footer Navigation"
+          role="navigation"
+        >
+          {
+            footerMenu.map((group) => (
+              <div class="mt-10 md:mt-0 first:mt-0">
+                <h3 class="text-base font-semibold leading-6">{group.title}</h3>
+                <ul role="list" class="mt-6 space-y-2">
+                  {group.children?.map((item) => (
+                    <li role="menuitem">
+                      <a
+                        href={item.path}
+                        class="text-base leading-6 font-medium text-foreground/80 hover:text-foreground/90 underlined"
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </nav>
         {/** Footer Content Blocks  */}
       </div>
     </div>
