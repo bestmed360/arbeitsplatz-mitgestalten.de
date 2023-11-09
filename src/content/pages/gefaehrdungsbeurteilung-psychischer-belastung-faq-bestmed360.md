@@ -58,5 +58,42 @@ faqs:
 
         - question: Wie viel Zeit ist für den Gesamtprozess erforderlich?
           answer: Die Dauer des Gesamtprozesses hängt von der Betriebsgröße, der Vielfalt der Tätigkeiten und der Umsetzungsbereitschaft ab. Erfahrungsgemäß kann die Durchführung des gesamten Prozesses ein bis eineinhalb Jahre dauern.
-					
+	
+    - title: Effektive Ermittlung psychischer Belastung - FAQ
+      description: Antworten auf häufig gestellte Fragen zur effektiven Ermittlung psychischer Belastungen am Arbeitsplatz. Erfahren Sie, wie Sie die psychische Gesundheit Ihrer Mitarbeiter schützen und das Arbeitsumfeld positiv gestalten können.
+      questions:
+      - question: Wie erfolgt die Ermittlung psychischer Belastung?
+        answer: Die Ermittlung psychischer Belastung erfolgt durch bewährte methodische Ansätze wie schriftliche Mitarbeiterbefragungen, Beobachtung/Beobachtungsinterviews und moderierte Analyse-Workshops. Oft ist eine Kombination dieser Methoden erforderlich.
+
+      - question: Wo findet man passende Instrumente zur Ermittlung psychischer Belastung in der Gefährdungsbeurteilung?
+        answer: Eine Vielzahl von Instrumenten zur Ermittlung und Bewertung psychischer Belastung steht zur Verfügung. Die Auswahl hängt von fachlichen und methodischen Kenntnissen ab. Das GDA-Arbeitsprogramm Psyche bietet eine Zusammenstellung von Instrumenten der GDA-Träger und Sozialpartner.
+
+      - question: Welche Methoden zur Ermittlung und Bewertung psychischer Belastung sind rechtssicher?
+        answer: Betriebe haben grundsätzlich Freiheit in der Auswahl von Methoden und Instrumenten, müssen jedoch den Stand der Technik und arbeitswissenschaftliche Erkenntnisse berücksichtigen.
+
+      - question: Welche Belastungsfaktoren sollten in der Gefährdungsbeurteilung psychischer Belastung berücksichtigt werden?
+        answer: "Wesentliche psychische Belastungsfaktoren, die in der Gefährdungsbeurteilung berücksichtigt werden sollten, sind: Arbeitsinhalt/Arbeitsaufgabe, Arbeitsorganisation, soziale Beziehungen, Arbeitsumgebung und neue Arbeitsformen."
+          
+      - question: Gibt es klare Anzeichen für arbeitsbedingte psychische Belastung?
+        answer: Offensichtliche Hinweise für arbeitsbedingte psychische Belastungen können hoher Krankenstand, hohe Fehlerhäufigkeit, Unfälle/Beinahe-Unfälle, unzufriedene Kunden/Beschäftigte und andere sein.
+          
+      - question: Müssen bei der Gefährdungsbeurteilung auch psychische Probleme aus der Privatsphäre oder Suchtprobleme der Beschäftigten berücksichtigt werden?
+        answer: Nein, bei der Gefährdungsbeurteilung werden nur arbeitsbezogene Belastungen erfasst und beurteilt. Privatprobleme oder Suchtprobleme sind nicht Teil der Gefährdungsbeurteilung, können aber im Rahmen der arbeitsmedizinischen Vorsorge erfasst und beurteilt werden.
+          
+      - question: Muss die Gefährdungsbeurteilung psychischer Belastung in allen Arbeitsbereichen durchgeführt werden?
+        answer: Ja, die Gefährdungsbeurteilung psychischer Belastung muss für alle Arbeitsbereiche durchgeführt werden. Es gibt keine Ausnahmen oder Einschränkungen.
+          
+      - question: Müssen alle Beschäftigten bei der Gefährdungsbeurteilung befragt werden?
+        answer: "Nein, es ist nicht erforderlich, dass alle Beschäftigten befragt werden. Die Ermittlung erfolgt tätigkeitsbezogen und nicht personenbezogen. Es sollten jedoch besondere Personengruppen wie Leiharbeitnehmer*innen, Schwangere oder Jugendliche gesondert berücksichtigt werden. Rechtsgrundlage: §§ 9, 10 MuSchG"
+          
+      - question: Müssen auch Arbeitsmittel in der Gefährdungsbeurteilung psychischer Belastung betrachtet werden?
+        answer: Ja, im Rahmen der tätigkeitsbezogenen Gefährdungsbeurteilung sollten auch die psychischen Belastungen berücksichtigt werden, die von Arbeitsmitteln ausgehen. Dies beinhaltet die Gestaltung des Arbeitsmittels sowie die Verwendung und den Einsatz des Arbeitsmittels.
+          
+      - question: Was muss bei der Beurteilung der Mensch-Maschine-Schnittstelle bzw. Bedien- und Bildschirmoberfläche auf Monitoren beachtet werden?
+        answer: "Bei der Beurteilung sollten insbesondere die ergonomischen Grundsätze für die Gestaltung und Bewertung einer Schnittstelle zwischen Benutzer und System (Dialoggestaltung) beachtet werden. Rechtsgrundlage: Arbeitsstättenverordnung, DIN EN ISO 9241-110:2008-09"
+
+
+    
+
+
 ---
