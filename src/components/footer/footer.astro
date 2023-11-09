@@ -1,0 +1,93 @@
+---
+import Logo from "@assets/logo.svg";
+import { config } from "@config/index";
+import { Image } from "astro:assets";
+---
+
+<footer
+  class="bg-brand/20 sticky top-[100vh] mt-10"
+  aria-labelledby="footer-heading"
+>
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
+  <div class="mx-auto max-w-8xl px-5vw pb-8 pt-16 sm:pt-24">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <Image src={Logo} alt={config.site.title} class="h-20 w-auto" />
+      <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-base font-semibold leading-6">Leistungen</h3>
+            <ul role="list" class="mt-6 space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-sm leading-6 font-semibold text-foreground/80 hover:text-foreground/90 underlined"
+                >
+                  Marketing
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-sm leading-6 font-semibold text-foreground/80 hover:text-foreground/90 underlined"
+                >
+                  Marketing
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-sm leading-6 font-semibold text-foreground/80 hover:text-foreground/90 underlined"
+                >
+                  Marketing
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-10 md:mt-0">
+            <h3 class="text-base font-semibold leading-6">Rechtliches</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a
+                  href="#"
+                  class="text-sm leading-6 text-foreground/80 hover:text-foreground/90"
+                >
+                  Impressum
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-sm leading-6 text-foreground/80 hover:text-foreground/90"
+                >
+                  Datenschutz
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-sm leading-6 text-foreground/80 hover:text-foreground/90"
+                >
+                  AGB
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {/** Footer Content Blocks  */}
+      </div>
+    </div>
+    {/** maybe newsletter? */}
+    <div
+      class="mt-8 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between"
+    >
+      <div class="flex space-x-6 md:order-2">
+        {/** social icons */}
+      </div>
+      <p class="mt-8 text-xs leading-5 text-foreground/90 md:order-1 md:mt-0">
+        &copy; {new Date().getFullYear()}
+        {" "}
+        {config.site.title}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

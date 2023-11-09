@@ -1,0 +1,117 @@
+---
+import Logo from "@assets/logo.svg";
+import Footer from "@components/footer/footer.astro";
+import Header from "@components/header/header.astro";
+import { config } from "@config/index";
+import { SEO, type Props as SEOProps } from "astro-seo";
+import { Schema } from "astro-seo-schema";
+import { ViewTransitions } from "astro:transitions";
+
+export interface Props {
+  seo?: SEOProps;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const Site = Astro.site;
+
+const { seo } = Astro.props;
+---
+
+<!doctype html>
+<html lang={config.site.defaultLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+      canonical={canonicalURL}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: seo?.title || config.site.title,
+          image: "",
+        },
+      }}
+      {...seo}
+      titleDefault={config.site.title}
+      titleTemplate={`%s - ${config.site.title}`}
+    />
+
+    <link rel="icon" href="/favicon@2x-32x32.png" sizes="32x32" />
+    <link rel="icon" href="/favicon@2x-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/favicon@2x-180x180.png" />
+    <meta name="msapplication-TileImage" content="/favicon@2x-270x270.png" />
+
+    <ViewTransitions />
+    <slot name="head" />
+
+    <Schema
+      item={{
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": canonicalURL,
+            url: canonicalURL,
+            name: seo?.title
+              ? `${seo.title} - ${config.site.title}`
+              : config.site.title,
+            isPartOf: {
+              "@id": `${Site}/#website`,
+            },
+          },
+          {
+            "@type": "WebSite",
+            "@id": `${Site}/#website`,
+            url: Site?.toString(),
+            name: config.site.title,
+            description: config.site.description,
+            publisher: {
+              "@id": `${Site}/#organization`,
+            },
+            inLanguage: config.site.defaultLang,
+          },
+          {
+            "@type": "Organization",
+            name: config.organization.name,
+            url: Astro.site?.toString(),
+            logo: Logo.src,
+            image: {
+              "@type": "ImageObject",
+              url: Logo.src,
+              width: Logo.width?.toString(),
+              height: Logo.height?.toString(),
+            },
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: config.organization.addressLocality,
+              postalCode: config.organization.postalCode,
+              streetAddress: config.organization.streetAddress,
+              telephone: config.organization.telephone,
+              email: config.organization.email,
+            },
+          },
+        ],
+      }}
+    />
+  </head>
+  <body
+    class="text-foreground bg-background min-h-screen"
+    itemscope
+    itemtype="https://schema.org/WebPage"
+  >
+    <Header />
+    <slot />
+
+    <Footer />
+    <style is:global>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>

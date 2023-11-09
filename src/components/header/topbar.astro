@@ -1,0 +1,29 @@
+---
+import { config } from "@config/index";
+---
+
+<div class="relative isolate bg-brand/20 hidden md:block print:hidden">
+  <div class="mx-auto max-w-8xl px-5vw py-2 text-sm text-black font-medium">
+    <ul
+      class="flex flex-row divide-x divide-foreground/20 text-center leading-5"
+    >
+      <li class="px-4 first:ps-0 space-x-1">
+        <span>
+          {config.organization.streetAddress},
+        </span>
+        <span>
+          {config.organization.postalCode}
+        </span>
+        <span>
+          {config.organization.addressLocality}
+        </span>
+      </li>
+      <li class="px-4">
+        <a href="tel:0308913040"> 030 891 3040</a>
+      </li>
+      <li class="px-4">
+        <a href="mailto:info@bestmed360.com">info@bestmed360.com</a>
+      </li>
+    </ul>
+  </div>
+</div>
