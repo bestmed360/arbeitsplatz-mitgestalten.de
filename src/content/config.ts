@@ -10,13 +10,15 @@ const teamCollection = defineCollection({
   }),
 });
 
+const metaSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+});
+
 const pagesCollection = defineCollection({
   type: "content",
   schema: z.object({
-    meta: z.object({
-      title: z.string(),
-      description: z.string(),
-    }),
+    meta: metaSchema,
     hero: z
       .object({
         title: z.string(),
@@ -41,7 +43,24 @@ const pagesCollection = defineCollection({
   }),
 });
 
+const leistungenCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    meta: metaSchema,
+    card: z.object({
+      title: z.string(),
+      description: z.string(),
+    }),
+    hero: z.object({
+      title: z.string(),
+      description: z.string(),
+      image: z.string().url().optional(),
+    }),
+  }),
+});
+
 export const collections = {
   team: teamCollection,
   pages: pagesCollection,
+  leistungen: leistungenCollection,
 };

@@ -19,7 +19,7 @@ export const config = {
 export const menu = [
   {
     title: "Leistungen",
-    path: "#",
+    path: "/unsere-leistungen",
   },
   {
     title: "Referenzen",
@@ -34,7 +34,32 @@ export const menu = [
 export const footerMenu = [
   {
     title: "Leistungen",
-    children: [],
+    children: [
+      {
+        title: "BGM",
+        path: "#",
+      },
+      {
+        title: "Beratung & Support",
+        path: "#",
+      },
+      {
+        title: "Arbeitsmedizin",
+        path: "#",
+      },
+      {
+        title: "Schulungen",
+        path: "#",
+      },
+      {
+        title: "Telemedizin",
+        path: "#",
+      },
+      {
+        title: "Arbeitsschutzorganisation",
+        path: "#",
+      },
+    ],
   },
   {
     title: "Ressourcen",
