@@ -1,7 +1,7 @@
 ---
 import Logo from "@assets/logo.svg";
 import ButtonLink from "@components/button/button-link.astro";
-import { config } from "@config/index";
+import { config, menu } from "@config/index";
 import { Image } from "astro:assets";
 ---
 
@@ -44,27 +44,17 @@ import { Image } from "astro:assets";
     itemtype="https://schema.org/SiteNavigationElement"
     role="menu"
   >
-    <a
-      href="#"
-      class="text-base font-semibold leading-6 text-foreground underlined"
-      role="menuitem"
-    >
-      <span itemprop="name">Leistungen</span>
-    </a>
-    <a
-      href="#"
-      class="text-base font-semibold leading-6 text-foreground underlined"
-      role="menuitem"
-    >
-      <span itemprop="name">Referenzen</span>
-    </a>
-    <a
-      href="/ueber-uns"
-      class="text-base font-semibold leading-6 text-foreground underlined"
-      role="menuitem"
-    >
-      <span itemprop="name"> &Uuml;ber uns</span>
-    </a>
+    {
+      menu.map((m) => (
+        <a
+          href={m.path}
+          class="text-base font-semibold leading-6 text-foreground underlined"
+          role="menuitem"
+        >
+          {m.title}
+        </a>
+      ))
+    }
   </div>
   <div class="hidden lg:flex lg:flex-1 lg:justify-end">
     <ButtonLink href="/kontakt">Kontakt</ButtonLink>
