@@ -37,8 +37,9 @@ faqs:
         - question: Was versteht man unter psychischer Belastung am Arbeitsplatz?
           answer: Psychische Belastung am Arbeitsplatz umfasst alle erfassbaren Einflüsse, die von außen auf einen Menschen zukommen und ihn psychisch beeinflussen. Dazu gehören Arbeitsinhalt, Arbeitsorganisation, soziale Beziehungen, Arbeitsumgebung und neue Arbeitsformen.
 
-        - question: Welche Bedeutung hat der Begriff psychische Fehlbelastung?
-          answer: Der Begriff der psychischen Fehlbelastung wird nicht mehr verwendet. Stattdessen wird...
+        - question: Was ist mit psychischer Belastung am Arbeitsplatz gemeint?
+          answer: Psychische Belastung am Arbeitsplatz bezieht sich auf alle erfassbaren Einflüsse, die von außen auf einen Menschen zukommen und ihn psychisch beeinflussen. Dies umfasst Arbeitsinhalt, Arbeitsorganisation, soziale Beziehungen, Arbeitsumgebung und neue Arbeitsformen.
+
 
         - question: Was sind die möglichen negativen Folgen von psychischer Belastung für Beschäftigte und Unternehmen?
           answer: Unerwünschte Arbeitsbedingungen können zu gesundheitlichen Beeinträchtigungen der Beschäftigten führen, wie Erschöpfung, Frustration oder psychischen Erkrankungen. Unternehmen können negative Auswirkungen wie Unfälle, Fehlerhäufigkeit, Fehlzeiten und Produktivitätsverluste erleben.
