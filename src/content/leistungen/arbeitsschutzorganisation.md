@@ -5,7 +5,9 @@ meta:
 card:
   title: "Arbeitsschutzorganisation"
   description: "Hilfestellung beim Aufbau einer sicheren Arbeitsumgebung. Lassen Sie sich von unseren Experten bei der Implementierung einer effektiven Arbeitsschutzorganisation begleiten und gewährleisten Sie so sichere Arbeitsbedingungen."
-  image: ""
+  image:
+    src: "../../assets/images/leistungen/roter_helm.jpg"
+    alt: "Roter Helm auf Asphalt"
 hero:
   title: "Arbeitsschutzorganisation"
   description: "Unterstützung beim Aufbau einer effektiven Arbeitsschutzorganisation für eine sichere Arbeitsumgebung."

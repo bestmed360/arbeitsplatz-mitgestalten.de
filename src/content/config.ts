@@ -45,18 +45,30 @@ const pagesCollection = defineCollection({
 
 const leistungenCollection = defineCollection({
   type: "content",
-  schema: z.object({
-    meta: metaSchema,
-    card: z.object({
-      title: z.string(),
-      description: z.string(),
+  schema: ({ image }) =>
+    z.object({
+      meta: metaSchema,
+      card: z.object({
+        title: z.string(),
+        description: z.string(),
+        image: z
+          .object({
+            src: image(),
+            alt: z.string(),
+          })
+          .optional(),
+      }),
+      hero: z.object({
+        title: z.string(),
+        description: z.string(),
+        image: z
+          .object({
+            src: image(),
+            alt: z.string(),
+          })
+          .optional(),
+      }),
     }),
-    hero: z.object({
-      title: z.string(),
-      description: z.string(),
-      image: z.string().url().optional(),
-    }),
-  }),
 });
 
 export const collections = {

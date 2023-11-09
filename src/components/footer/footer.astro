@@ -31,11 +31,21 @@ import { Image } from "astro:assets";
           {
             footerMenu.map((group) => (
               <div class="mt-10 md:mt-0 first:mt-0">
-                <h3 class="text-base font-semibold leading-6">{group.title}</h3>
-                <ul role="list" class="mt-6 space-y-2">
+                <h3
+                  id={`${group.title}-label`}
+                  class="text-base font-semibold leading-6"
+                >
+                  {group.title}
+                </h3>
+                <ul
+                  role="menu"
+                  aria-labelledby={`${group.title}-label`}
+                  class="mt-6 space-y-2"
+                >
                   {group.children?.map((item) => (
-                    <li role="menuitem">
+                    <li role="presentation">
                       <a
+                        role="menuitem"
                         href={item.path}
                         class="text-base leading-6 font-medium text-foreground/80 hover:text-foreground/90 underlined"
                       >

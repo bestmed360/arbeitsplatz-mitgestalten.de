@@ -5,7 +5,9 @@ meta:
 card:
   title: "Schulungen"
   description: "Qualifizierte Weiterbildungen für Mitarbeiter*innen und Führungskräfte. Unsere praxisorientierten Schulungen fördern die Kompetenzen Ihrer Mitarbeiter und tragen zur Verbesserung der Arbeitsqualität bei."
-  image: ""
+  image:
+    src: "../../assets/images/leistungen/schulungen.jpg"
+    alt: "Menschen im Konferenzraum bei einer Schulung"
 hero:
   title: "Schulungen"
   description: "Schulungsangebot mit qualifizierten Weiterbildungen für Mitarbeiter*innen und Führungskräfte."
