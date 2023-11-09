@@ -37,27 +37,27 @@ export const footerMenu = [
     children: [
       {
         title: "BGM",
-        path: "#",
+        path: "/unsere-leistungen/betriebliches-gesundheitsmanagement",
       },
       {
         title: "Beratung & Support",
-        path: "#",
+        path: "/unsere-leistungen/beratung-und-support",
       },
       {
         title: "Arbeitsmedizin",
-        path: "#",
+        path: "/unsere-leistungen/arbeitsmedizin",
       },
       {
         title: "Schulungen",
-        path: "#",
+        path: "/unsere-leistungen/schulungen",
       },
       {
         title: "Telemedizin",
-        path: "#",
+        path: "/unsere-leistungen/telemedizin",
       },
       {
         title: "Arbeitsschutzorganisation",
-        path: "#",
+        path: "/unsere-leistungen/arbeitsschutzorganisation",
       },
     ],
   },

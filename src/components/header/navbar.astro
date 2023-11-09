@@ -2,7 +2,12 @@
 import Logo from "@assets/logo.svg";
 import ButtonLink from "@components/button/button-link.astro";
 import { config, menu } from "@config/index";
+import { cn } from "@utils/classes";
 import { Image } from "astro:assets";
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+console.log(pathname);
 ---
 
 <nav
@@ -48,7 +53,10 @@ import { Image } from "astro:assets";
       menu.map((m) => (
         <a
           href={m.path}
-          class="text-base font-semibold leading-6 text-foreground underlined"
+          class={cn(
+            "text-lg font-semibold leading-6 text-foreground underlined",
+            pathname === m.path && "is--active"
+          )}
           role="menuitem"
         >
           {m.title}

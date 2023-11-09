@@ -238,6 +238,10 @@ export default {
           backgroundColor: "currentColor",
           transform: "scaleX(1)",
         },
+        ".underlined.is--active:after": {
+          backgroundColor: "currentColor",
+          transform: "scaleX(1)",
+        },
       });
     }),
   ],
