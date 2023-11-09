@@ -27,7 +27,7 @@ export default {
         "8xl": "96rem", // better support for large screens
       },
       typography: (theme) => {
-        const fontSize = (size: string) => {
+        const fontSize = (size) => {
           const result = theme(`fontSize.${size}`);
           return Array.isArray(result) ? result[0] : result;
         };
