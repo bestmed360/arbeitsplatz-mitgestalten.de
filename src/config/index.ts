@@ -5,6 +5,7 @@ export const config = {
     description: "Bestmed360",
     basePath: "/",
     defaultLang: "de",
+    googleSiteVerificationId: "menno",
   },
   organization: {
     name: "Bestmed360",
@@ -35,6 +36,10 @@ export const footerMenu = [
   {
     title: "Leistungen",
     children: [
+      {
+        title: "GBU Psyche",
+        path: "/unsere-leistungen/gefaehrdungsbeurteilung-psyche",
+      },
       {
         title: "BGM",
         path: "/unsere-leistungen/betriebliches-gesundheitsmanagement",

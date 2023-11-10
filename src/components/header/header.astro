@@ -1,9 +1,11 @@
 ---
+import { cn } from "@utils/classes";
 import Navbar from "./navbar.astro";
-import Topbar from "./topbar.astro";
 ---
 
-<header class="relative isolate z-10">
-  <Topbar />
+<header
+  id="header"
+  class={cn("z-10 w-full", "transition-[opacity] ease-in-out")}
+>
   <Navbar />
 </header>

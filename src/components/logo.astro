@@ -1,0 +1,18 @@
+---
+import LogoSVG from "@assets/logo.svg";
+import { config } from "@config/index";
+import { cn } from "@utils/classes";
+import { Image } from "astro:assets";
+
+export type Props = {
+  class?: string;
+};
+
+const { class: className } = Astro.props;
+---
+
+<Image
+  src={LogoSVG}
+  class={cn("w-auto h-20", className)}
+  alt={`${config.site.title} Logo`}
+/>

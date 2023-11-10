@@ -1,0 +1,30 @@
+---
+export interface Props {
+  label?: string;
+}
+
+const { label = "Open main menu" } = Astro.props;
+---
+
+<button
+  type="button"
+  data-toggle-menu
+  class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+>
+  <span class="sr-only">
+    {label}
+  </span>
+  <svg
+    class="h-8 w-8"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    aria-hidden="true"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+  </svg>
+</button>

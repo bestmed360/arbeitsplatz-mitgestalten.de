@@ -21,6 +21,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "install": "^0.13.0",
+    "limax": "^4.1.0",
     "npm": "^10.2.3",
     "schema-dts": "^1.1.2",
     "tailwind-merge": "^2.0.0",

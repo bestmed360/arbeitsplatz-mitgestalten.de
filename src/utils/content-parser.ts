@@ -12,5 +12,11 @@ export async function getSinglePage<
 
   const removeIndex = allPage.filter((data: any) => data.id.match(/^(?!-)/));
   const removeDrafts = removeIndex.filter((data: any) => !data.data.draft);
-  return removeDrafts;
+
+  // order by "weight", default to 0, highest first
+  const ordered = removeDrafts.sort((a: any, b: any) =>
+    a.data.weight > b.data.weight ? -1 : 1
+  );
+
+  return ordered;
 }

@@ -1,68 +1,74 @@
 ---
-import Logo from "@assets/logo.svg";
 import ButtonLink from "@components/button/button-link.astro";
+import ToggleMenu from "@components/common/toggle-menu.astro";
+import Logo from "@components/logo.astro";
 import { config, menu } from "@config/index";
 import { cn } from "@utils/classes";
-import { Image } from "astro:assets";
 
 const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<nav
-  class="mx-auto flex max-w-8xl items-center justify-between py-6 px-5vw"
-  aria-label="Global"
+<div
+  class={cn(
+    // common
+    "py-6 px-5vw max-w-8xl mx-auto",
+    // md+ (desktop)
+    "md:flex md:justify-between md:items-center"
+  )}
 >
-  <div class="flex lg:flex-1">
-    <a href="/" class="-m-1.5 p-1.5">
+  <div class="mr-auto flex justify-between md:flex-1">
+    <a href="/" class="flex items-center">
       <span class="sr-only" itemprop="name">
         {config.site.title}
       </span>
-      <Image src={Logo} class="w-auto h-20" alt={`${config.site.title} Logo`} />
+      <Logo />
     </a>
+    <div class="flex lg:hidden">
+      <ToggleMenu />
+    </div>
   </div>
-  <div class="flex lg:hidden">
-    <button
-      type="button"
-      class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-    >
-      <span class="sr-only">Open main menu</span>
-      <svg
-        class="h-8 w-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-      </svg>
-    </button>
-  </div>
-  <div
-    class="hidden lg:flex lg:gap-x-12"
+
+  <nav
+    class={cn(
+      "flex-1 hidden items-center overflow-y-auto overflow-x-hidden",
+      // md+ (desktop)
+      "md:flex md:overflow-y-visible md:overflow-x-visible"
+    )}
     itemscope
     itemtype="https://schema.org/SiteNavigationElement"
     role="menu"
+    aria-label="Main navigation"
   >
-    {
-      menu.map((m) => (
-        <a
-          href={m.path}
-          class={cn(
-            "text-lg font-semibold leading-6 text-foreground underlined",
-            pathname === m.path && "is--active"
-          )}
-          role="menuitem"
-        >
-          {m.title}
-        </a>
-      ))
-    }
-  </div>
-  <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+    <ul
+      class={cn(
+        "flex flex-col w-full pt-4",
+        "md:pt-0 md:flex-row md:self-center md:gap-x-4"
+      )}
+    >
+      {
+        menu.map((m) => (
+          <li class="px-4 py-3">
+            <a
+              href={m.path}
+              class={cn(
+                "text-lg font-semibold leading-6 text-foreground underlined",
+                pathname === m.path && "is--active"
+              )}
+              role="menuitem"
+            >
+              {m.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div
+    class={cn(
+      "hidden items-center md:w-auto bottom-0 fixed justify-end left-0 p-4",
+      "md:flex md:flex-1 md:justify-end md:mb-0 md:p-0 md:self-center md:static"
+    )}
+  >
     <ButtonLink href="/kontakt">Kontakt</ButtonLink>
   </div>
-</nav>
+</div>

@@ -1,0 +1,12 @@
+---
+import { config } from "@config/index";
+---
+
+{
+  config.site.googleSiteVerificationId && (
+    <meta
+      name="google-site-verification"
+      content={config.site.googleSiteVerificationId}
+    />
+  )
+}

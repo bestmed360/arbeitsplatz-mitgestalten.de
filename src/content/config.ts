@@ -47,6 +47,7 @@ const leistungenCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
+      weight: z.number().optional().default(0),
       meta: metaSchema,
       card: z.object({
         title: z.string(),

@@ -1,7 +1,13 @@
 ---
 import Logo from "@assets/logo.svg";
+import BasicScripts from "@components/common/basic-scripts.astro";
+import CommonMeta from "@components/common/common-meta.astro";
+import Favicons from "@components/common/favicons.astro";
+import SiteVerification from "@components/common/site-verification.astro";
+
 import Footer from "@components/footer/footer.astro";
 import Header from "@components/header/header.astro";
+import Topbar from "@components/header/topbar.astro";
 import { config } from "@config/index";
 import { SEO, type Props as SEOProps } from "astro-seo";
 import { Schema } from "astro-seo-schema";
@@ -21,9 +27,9 @@ const { seo } = Astro.props;
 <!doctype html>
 <html lang={config.site.defaultLang}>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
+    <CommonMeta />
+    <Favicons />
+    <SiteVerification />
     <SEO
       canonical={canonicalURL}
       openGraph={{
@@ -38,12 +44,6 @@ const { seo } = Astro.props;
       titleDefault={config.site.title}
       titleTemplate={`%s - ${config.site.title}`}
     />
-
-    <link rel="icon" href="/favicon@2x-32x32.png" sizes="32x32" />
-    <link rel="icon" href="/favicon@2x-192x192.png" sizes="192x192" />
-    <link rel="apple-touch-icon" href="/favicon@2x-180x180.png" />
-    <meta name="msapplication-TileImage" content="/favicon@2x-270x270.png" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <ViewTransitions />
     <slot name="head" />
@@ -99,11 +99,21 @@ const { seo } = Astro.props;
     />
   </head>
   <body
-    class="text-foreground bg-background min-h-screen"
+    class="text-foreground bg-background min-h-screen antialiased"
     itemscope
     itemtype="https://schema.org/WebPage"
   >
-    <Header />
+    <BasicScripts />
+    <Fragment slot="announcement">
+      <slot name="announcement" />
+    </Fragment>
+    <Fragment slot="header">
+      <slot name="header">
+        <Topbar />
+        <Header />
+      </slot>
+    </Fragment>
+
     <slot />
 
     <Footer />
