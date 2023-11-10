@@ -68,6 +68,52 @@ const leistungenCollection = defineCollection({
           })
           .optional(),
       }),
+
+      sectionOne: z
+        .object({
+          title: z.string(),
+          text: z.string(),
+          image: z
+            .object({
+              src: image(),
+              alt: z.string(),
+            })
+            .optional(),
+        })
+        .optional(),
+
+      sectionWhy: z
+        .object({
+          title: z.string(),
+          description: z.string(),
+          bullets: z.array(
+            z.object({
+              title: z.string(),
+              description: z.string(),
+            })
+          ),
+        })
+        .optional(),
+
+      // raw content markdown
+      // cta action
+
+      // more content?
+
+      faq: z
+        .object({
+          title: z.string(),
+          description: z.string(),
+          questions: z.array(
+            z.object({
+              question: z.string(),
+              answer: z.string(),
+            })
+          ),
+        })
+        .optional(),
+
+      // contact form, clear
     }),
 });
 

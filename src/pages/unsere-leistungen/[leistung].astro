@@ -2,6 +2,7 @@
 import Layout from "@layouts/layout.astro";
 import { getSinglePage } from "@utils/content-parser";
 import type { GetStaticPaths } from "astro";
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 export const getStaticPaths = (async () => {
@@ -62,9 +63,127 @@ const { Content } = await page.render();
     )
   }
 
-  <section
-    class="relative w-full grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6 mx-auto max-w-7xl prose prose-light mb-24 break-words dark:prose-dark px-5vw"
-  >
-    <Content />
+  {
+    data.sectionOne && (
+      <section class="relative py-24 sm:py-32 lg:pb-40 px-5vw overflow-hidden">
+        <div class="mx-auto max-w-8xl">
+          <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start">
+            <div class="lg:pr-4 lg:pt-4">
+              <div class="lg:max-w-lg">
+                <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                  {data.sectionOne.title}
+                </h2>
+                <p class="mt-6 text-lg leading-8 text-foreground/80">
+                  {data.sectionOne.text}
+                </p>
+              </div>
+            </div>
+            {data.sectionOne.image && (
+              <Image
+                src={data.sectionOne.image.src}
+                alt={data.sectionOne.image.alt}
+                class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:ml-0"
+                width={950}
+              />
+            )}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    data.sectionWhy && (
+      <section class="relative py-24 sm:py-32 lg:pb-40 px-5vw">
+        <div class="mx-auto max-w-8xl">
+          <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <div>
+              <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                {data.sectionWhy.title}
+              </h2>
+              <p class="mt-6 text-lg leading-8 text-foreground/80">
+                {data.sectionWhy.description}
+              </p>
+            </div>
+            <dl class="col-span-2 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
+              {data.sectionWhy.bullets.map((bullet) => (
+                <div>
+                  <dt class="text-base font-semibold leading-7 text-foreground">
+                    {bullet.title}
+                  </dt>
+                  <dd class="mt-1 text-base leading-7 text-foreground/80">
+                    {bullet.description}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="px-5vw relative bg-brand/20 py-24 sm:py-32 lg:pb-40">
+    <div class="bg-white p-8 rounded-2xl max-w-5xl mx-auto">
+      <div
+        class="relative w-full grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6 mx-auto max-w-7xl prose prose-light mb-24 break-words dark:prose-dark"
+      >
+        <Content />
+      </div>
+    </div>
   </section>
+
+  <section class="relative py-24 sm:py-32 lg:pb-40 px-5vw">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        Bereit für gesunde Arbeitsbedingungen?
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-foreground/80">
+        Erfahren Sie, wie wir Ihr Unternehmen nachhaltig unterstützen und die
+        Gesundheit Ihrer Mitarbeitenden fördern können. Wir stehen Ihnen für
+        alle Fragen rund um unser Angebot zur Verfügung.
+      </p>
+      <div class="mt-10 flex items-center justify-center gap-x-6">
+        <a
+          href="/kontakt"
+          class="rounded-md bg-brand px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        >
+          Kontaktieren Sie uns jetzt!</a
+        >
+      </div>
+    </div>
+  </section>
+
+  {
+    data.faq && (
+      <section class="relative py-24 sm:py-32 lg:pb-40 px-5vw">
+        <div class="mx-auto max-w-8xl">
+          <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+            <div class="lg:col-span-5">
+              <h2 class="text-2xl font-bold leading-10 tracking-tight text-foreground">
+                {data.faq.title}
+              </h2>
+              <p class="mt-4 text-base leading-7 text-foreground/80">
+                {data.faq.description}
+              </p>
+            </div>
+            <div class="mt-10 lg:col-span-7 lg:mt-0">
+              <dl class="space-y-10">
+                {data.faq.questions.map((q) => (
+                  <div>
+                    <dt class="text-base font-semibold leading-7 text-foreground">
+                      {q.question}
+                    </dt>
+                    <dd class="mt-2 text-base leading-7 text-foreground/80">
+                      {q.answer}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 </Layout>
