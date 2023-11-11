@@ -1,0 +1,68 @@
+---
+import ContactForm from "@components/common/contact-form.astro";
+import { config } from "@config/index";
+import Layout from "@layouts/layout.astro";
+---
+
+<Layout
+  seo={{
+    title: "Kontakt",
+    description:
+      "Kontaktieren Sie unser erfahrenes Team von BESTMED 360 unkompliziert per E-Mail oder Kontaktformular. Wir beraten Sie gerne rund um Arbeitsmedizin, Gesundheitsschutz und Arbeitssicherheit.",
+  }}
+>
+  <main class="isolate">
+    <section class="relative px-5vw py-24 md:py-32 lg:py-40">
+      <div class="mx-auto max-w-8xl sm:mt-0">
+        <div class="grid grid-cols-1 md:grid-cols-2">
+          <div class="lg:pr-24 md:pr-12">
+            <h2 class="text-3xl font-bold tracking-tight text-foreground">
+              Sprechen Sie uns an - wir sind für Sie da!
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-foreground/80">
+              Sie haben Fragen oder benötigen Unterstützung? Unser kompetentes
+              Team steht Ihnen gerne mit Rat und Tat zur Seite. Nutzen Sie unser
+              Kontaktformular oder schreiben Sie uns eine E-Mail, wir melden uns
+              umgehend bei Ihnen.
+            </p>
+            <div class="rounded-2xl bg-brand/5 p-10 mt-6">
+              <h3 class="text-base font-semibold leading-7 text-foreground">
+                {config.organization.name}
+              </h3>
+              <address
+                class="mt-3 space-y-1 text-sm not-italic leading-6 text-foreground"
+              >
+                <p>
+                  {config.organization.streetAddress}
+                </p>
+                <p>
+                  {config.organization.postalCode}{" "}
+                  {config.organization.addressLocality}
+                </p>
+              </address>
+              <dl class="mt-3 space-y-1 text-sm leading-6 text-foreground">
+                <div>
+                  <dt class="sr-only">Email</dt>
+                  <dd>
+                    <a
+                      class="font-semibold text-brand"
+                      href=`mailto:${config.organization.email}`
+                      >{config.organization.email}</a
+                    >
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+          <div
+            class="lg:mt-0 mt-12 md:pl-12 md:border-l lg:pl-24 border-slate-200"
+          >
+            <div class="px-6 pb-24 sm:pb-32 lg:px-8">
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
