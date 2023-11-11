@@ -5,6 +5,8 @@ import { getSinglePage } from "@utils/content-parser";
 import { Image } from "astro:assets";
 
 const leistungen = await getSinglePage("leistungen");
+
+export const prerender = true;
 ---
 
 <Layout
