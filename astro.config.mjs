@@ -1,4 +1,3 @@
-import netlify from "@astrojs/netlify/functions";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 
@@ -9,5 +8,5 @@ export default defineConfig({
   site: "https://arbeitsplatz-mitgestalten.de",
   integrations: [tailwind(), sitemap()],
   output: "static",
-  adapter: netlify(),
+  //   adapter: netlify(),
 });
