@@ -80,3 +80,23 @@ Die Verarbeitung der unter diesem Abschnitt angegebenen Daten ist weder gesetzli
 ## Anonyme Analytics mit Netlify
 
 Zur statistischen Auswertung setzen wir den Analysedienst Netlify Analytics ein. Dies hilft uns zu verstehen, welche Inhalte besonders nachgefragt werden. Die Analytics-Daten enthalten keine personenbezogenen Informationen. Es werden lediglich aggregierte Daten wie Seitenaufrufe, Herkunftsland und Besuchshäufigkeit erhoben. Mehr Informationen dazu, wie Netlify Ihre Daten verarbeitet, können Sie deren [Datenschutzerklärung](https://www.netlify.com/privacy/) sowie der [Dokumentation von Netlify Analytics](https://docs.netlify.com/monitor-sites/analytics/) entnehmen.
+
+## Kontaktformular
+
+Wir stellen Ihnen ein Kontaktformular zur Verfügung, mit dem wir folgende personenbezogene Daten erheben:
+
+| | |
+| --- | --- |
+| Name | Vorname, Nachname |
+| E-Mail-Adresse | E-Mail-Adresse |
+
+Zusätzlich erheben wir:
+
+- Zeitpunkt der Übermittlung
+- IP-Adresse
+
+Die Daten werden ausschließlich zum Zweck der Übermittlung von Anfragen und deren Beantwortung gespeichert. Die Pflichtangaben dienen der Zuordnung und der Beantwortung Ihres Anliegen. Dies entspricht unserem berechtigten Interesse (Art. 6 Abs. 1 lit f DSGVO). Falls Sie sich über ein angebotenes Produkt oder eine Dienstleistung informieren, erfolgt die Verarbeitung zur Durchführung vorvertraglicher Maßnahmen (Art 6. Abs. 1 lit b DSGVO).
+
+Sie haben das Recht der Verarbeitung zu widersprechen. Ob der Widerspruch erfolgreich ist, ist im Rahmen einer Interessenabwägung zu ermitteln. Weitere Informationen finden Sie unter dem Punkt „Betroffenenrechte“.
+
+Ihre Daten werden nach Abschluss der Bearbeitung gelöscht.
