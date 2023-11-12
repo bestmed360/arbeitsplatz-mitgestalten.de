@@ -75,7 +75,7 @@ export const footerMenu = [
       },
       {
         title: "Downloads",
-        path: "#",
+        path: "/ressourcen/downloads",
       },
       {
         title: "Videos",
