@@ -1,4 +1,5 @@
 ---
+import ContactCta from "@components/blocks/contact-cta.astro";
 import Layout from "@layouts/layout.astro";
 import { cn } from "@utils/classes";
 import { getSinglePage } from "@utils/content-parser";
@@ -115,4 +116,6 @@ export const prerender = true;
       </div>
     </div>
   </section>
+
+  <ContactCta />
 </Layout>

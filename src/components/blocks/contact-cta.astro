@@ -1,0 +1,76 @@
+---
+import FrauAmTelefonBild from "@assets/images/frau_am_telefon.jpg";
+import ContactForm from "@components/common/contact-form.astro";
+import { config } from "@config/index";
+import { cn } from "@utils/classes";
+import { Image } from "astro:assets";
+---
+
+<section class="relative py-24 sm:py-32 lg:pb-40 px-5vw overflow-hidden">
+  <div class="mx-auto max-w-8xl">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="relative">
+        <Image
+          src={FrauAmTelefonBild}
+          alt="Frau auf Sofa mit MacBook und Telefon"
+          class={cn(
+            "rounded-2xl absolute w-64 top-[-1rem] left-[-1rem] shadow",
+            "md:w-80 md:top-[-2rem] lg:left-[-2rem]",
+            "lg:left-[-2.625rem] lg:w-80 lg:top-[-2.625rem]"
+          )}
+        />
+
+        <div
+          class={cn(
+            "rounded-2xl bg-brand/20",
+            "px-4 pb-28 pt-48",
+            "md:pt-56 md:px-6 md:pb-44"
+          )}
+        >
+          <div class="flex flex-col gap-4">
+            <h2 class="text-3xl font-bold tracking-tight text-foreground">
+              Sprechen Sie uns an - wir sind für Sie da!
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-foreground/80">
+              Sie haben Fragen oder benötigen Unterstützung? Unser kompetentes
+              Team steht Ihnen gerne mit Rat und Tat zur Seite. Nutzen Sie unser
+              Kontaktformular oder schreiben Sie uns eine E-Mail, wir melden uns
+              umgehend bei Ihnen.
+            </p>
+            <div class="rounded-2xl bg-white p-10 mt-6">
+              <h3 class="text-base font-semibold leading-7 text-foreground">
+                {config.organization.name}
+              </h3>
+              <address
+                class="mt-3 space-y-1 text-sm not-italic leading-6 text-foreground"
+              >
+                <p>
+                  {config.organization.streetAddress}
+                </p>
+                <p>
+                  {config.organization.postalCode}{" "}
+                  {config.organization.addressLocality}
+                </p>
+              </address>
+              <dl class="mt-3 space-y-1 text-sm leading-6 text-foreground">
+                <div>
+                  <dt class="sr-only">Email</dt>
+                  <dd>
+                    <a
+                      class="font-semibold text-brand"
+                      href=`mailto:${config.organization.email}`
+                      >{config.organization.email}</a
+                    >
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <ContactForm />
+      </div>
+    </div>
+  </div>
+</section>
