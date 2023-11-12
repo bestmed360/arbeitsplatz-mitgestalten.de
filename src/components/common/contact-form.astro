@@ -1,3 +1,15 @@
+---
+import { cva } from "class-variance-authority";
+
+const inputClass = cva([
+  "block w-full rounded-md border-0 px-3.5 py-2 text-foreground shadow-sm",
+  "sm:text-sm sm:leading-6",
+  "ring-1 ring-inset ring-foreground/20 placeholder:text-foreground/60",
+  "focus:ring-2 focus:ring-inset focus:ring-brand sm:text-sm sm:leading-6",
+  "focus-visible:outline focus-visible:outline-brand",
+]);
+---
+
 <form
   name="contact"
   method="POST"
@@ -31,7 +43,7 @@
             name="vorname"
             id="vorname"
             autocomplete="given-name"
-            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand sm:text-sm sm:leading-6"
+            class={inputClass()}
           />
         </div>
       </div>
@@ -49,7 +61,7 @@
             name="nachname"
             id="nachname"
             autocomplete="family-name"
-            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand sm:text-sm sm:leading-6"
+            class={inputClass()}
           />
         </div>
       </div>
@@ -66,7 +78,7 @@
             name="unternehmen"
             id="unternehmen"
             autocomplete="company"
-            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand sm:text-sm sm:leading-6"
+            class={inputClass()}
           />
         </div>
       </div>
@@ -83,7 +95,7 @@
             name="email"
             id="email"
             autocomplete="email"
-            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand sm:text-sm sm:leading-6"
+            class={inputClass()}
           />
         </div>
       </div>
@@ -100,7 +112,7 @@
             name="telefonnummer"
             id="telefonnummer"
             autocomplete="tel"
-            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand sm:text-sm sm:leading-6"
+            class={inputClass()}
           />
         </div>
       </div>
@@ -117,8 +129,7 @@
             name="nachricht"
             id="nachricht"
             rows="4"
-            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand sm:text-sm sm:leading-6"
-          ></textarea>
+            class={inputClass()}></textarea>
         </div>
       </div>
     </div>
