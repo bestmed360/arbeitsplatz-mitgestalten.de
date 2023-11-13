@@ -2,12 +2,20 @@ import { defineCollection, z } from "astro:content";
 
 const teamCollection = defineCollection({
   type: "data",
-  schema: z.object({
-    name: z.string(),
-    position: z.string(),
-    description: z.string(),
-    linkedIn: z.string().optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      draft: z.boolean().optional().default(false),
+      name: z.string(),
+      position: z.string(),
+      description: z.string(),
+      linkedIn: z.string().optional(),
+      image: z
+        .object({
+          src: image(),
+          alt: z.string(),
+        })
+        .optional(),
+    }),
 });
 
 const metaSchema = z.object({

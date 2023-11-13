@@ -1,5 +1,6 @@
 {
   "name": "Jolanda Zeller",
   "position": "Arbeitspsychologin",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae diam euismod, ultricies lorem eget, ultrices velit."
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae diam euismod, ultricies lorem eget, ultrices velit.",
+  "draft": true
 }

@@ -1,5 +1,10 @@
 {
   "name": "Vladimir Dorn",
   "position": "Facharzt für Innere Medizin und Arbeitsmedizin",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae diam euismod, ultricies lorem eget, ultrices velit."
+  "description": "Dr. Vladimir Dorn ist ein Experte in Arbeitsmedizin, Arbeitssicherheit und Arbeitspsychologie. Sein Fokus liegt auf Prävention, Gefährdungsbeurteilung psychischer Belastung (GBU Psyche) und anderen relevanten Bereichen. Mit fundiertem Fachwissen hat er erfolgreiche Projekte zur Förderung sicherer und gesunder Arbeitsumgebungen geleitet.",
+  "draft": false,
+  "image": {
+    "src": "../../assets/images/team/vladimir-dorn.jpg",
+    "alt": "Dr. Vladimir Dorn"
+  }
 }
