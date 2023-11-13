@@ -5,7 +5,13 @@ import Navbar from "./navbar.astro";
 
 <header
   id="header"
-  class={cn("z-10 w-full min-h-0", "transition-[opacity] ease-in-out")}
+  class={cn(
+    "absolute z-10 w-full min-h-0",
+    "top-0 md:top-auto",
+    "transition-[opacity] ease-in-out"
+  )}
 >
-  <Navbar />
+  <div class="mx-auto px-5vw max-w-8xl">
+    <Navbar />
+  </div>
 </header>

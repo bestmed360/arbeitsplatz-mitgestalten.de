@@ -3,6 +3,7 @@ import EinzelBeratungBild from "@assets/images/einzel_beratung.jpg";
 import LebhaftesBueroBild from "@assets/images/lebhaftes_buero.jpg";
 import UmfrageAmMacbookBild from "@assets/images/umfrage_am_macbook.jpg";
 import ContactCta from "@components/blocks/contact-cta.astro";
+import { cn } from "@utils/classes";
 import { Image } from "astro:assets";
 import Layout from "../layouts/layout.astro";
 
@@ -50,35 +51,13 @@ const mitgestaltenSections = [
 >
   <main class="isolate">
     <!-- hero section -->
-    <section class="relative isolate -z-10">
-      <!-- svg effects -->
-      <svg
-        class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
-        aria-hidden="true"
-      >
-        <defs>
-          <pattern
-            id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84"
-            width="200"
-            height="200"
-            x="50%"
-            y="-1"
-            patternUnits="userSpaceOnUse"
-          >
-            <path d="M.5 200V.5H200" fill="none"></path>
-          </pattern>
-        </defs>
-        <svg x="50%" y="-1" class="overflow-visible fill-gray-50">
-          <path
-            d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-            stroke-width="0"></path>
-        </svg>
-        <rect
-          width="100%"
-          height="100%"
-          stroke-width="0"
-          fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"></rect>
-      </svg>
+    <section
+      class={cn(
+        "relative isolate -z-10",
+        // gradient test
+        "bg-gradient-to-b from-brand/20 to-background pt-20"
+      )}
+    >
       <div
         class="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
         aria-hidden="true"
