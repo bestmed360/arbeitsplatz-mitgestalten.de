@@ -22,10 +22,10 @@ export const menu = [
     title: "Leistungen",
     path: "/unsere-leistungen",
   },
-  {
-    title: "Referenzen",
-    path: "#",
-  },
+  //   {
+  //     title: "Referenzen",
+  //     path: "#",
+  //   },
   {
     title: "Über uns",
     path: "/ueber-uns",
@@ -77,10 +77,10 @@ export const footerMenu = [
         title: "Downloads",
         path: "/ressourcen/downloads",
       },
-      {
-        title: "Videos",
-        path: "#",
-      },
+      //   {
+      //     title: "Videos",
+      //     path: "#",
+      //   },
     ],
   },
   {
@@ -94,10 +94,10 @@ export const footerMenu = [
         title: "Datenschutz",
         path: "/datenschutz",
       },
-      {
-        title: "AGB",
-        path: "/agb",
-      },
+      //   {
+      //     title: "AGB",
+      //     path: "/agb",
+      //   },
     ],
   },
 ];

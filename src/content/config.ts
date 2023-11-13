@@ -18,6 +18,7 @@ const metaSchema = z.object({
 const pagesCollection = defineCollection({
   type: "content",
   schema: z.object({
+    draft: z.boolean().optional().default(false),
     meta: metaSchema,
     hero: z
       .object({

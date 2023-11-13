@@ -5,6 +5,7 @@ meta:
 hero:    
   title: Allgemeine Geschäftsbedingungen
   description: Unsere Allgemeinen Geschäftsbedingungen
+draft: true
 ---
 
 # Allgemeine Geschäftsbedingungen
