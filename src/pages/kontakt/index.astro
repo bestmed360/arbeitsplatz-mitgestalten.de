@@ -1,5 +1,6 @@
 ---
 import ContactCta from "@components/blocks/contact-cta.astro";
+import HeroCentered from "@components/blocks/hero-centered.astro";
 import Layout from "@layouts/layout.astro";
 
 export const prerender = true;
@@ -13,6 +14,7 @@ export const prerender = true;
   }}
 >
   <main class="isolate">
+    <HeroCentered title="Kontakt" class="mt-32" />
     <ContactCta />
   </main>
 </Layout>
