@@ -48,10 +48,7 @@ const pathname = new URL(Astro.request.url).pathname;
     "relative z-header pointer-events-auto",
     "fixed top-0 left-0 w-full"
   )}
-  x-bind:class="{
-    'pointer-events-none': hideHeader,
-    'pointer-events-auto': !hideHeader,
-  }"
+  x-bind:class="{'pointer-events-none': hideHeader,'pointer-events-auto': !hideHeader}"
   x-data="header"
   x-init="updateHeader()"
   x-on:scroll.window="updateHeader(), menu = false"
@@ -59,10 +56,7 @@ const pathname = new URL(Astro.request.url).pathname;
 >
   <header
     class={cn("z-30 relative transition-all transform duration-1000")}
-    x-bind:class="{
-        '-translate-y-full': headerDirection == 'down' && hideHeader,
-        'bg-white shadow': headerPosition >= 400,
-    }"
+    x-bind:class="{'-translate-y-full': headerDirection == 'down' && hideHeader,'bg-white shadow': headerPosition >= 100}"
   >
     <Topbar />
     <div
@@ -162,15 +156,15 @@ const pathname = new URL(Astro.request.url).pathname;
       </div>
     </div>
   </header>
-</div>
-<div
-  class="w-full h-full transition-all duration-300 fixed top-0 left-0 z-10 hidden lg:block pointer-events-none opacity-0 backdrop-blur-md bg-white/30"
-  x-on:click="menu = false"
-  x-on:mouseenter="menu = false"
-  x-bind:class="{
+  <div
+    class="w-full h-full transition-all duration-300 fixed top-0 left-0 z-10 hidden lg:block pointer-events-none opacity-0 backdrop-blur-md bg-white/30"
+    x-on:click="menu = false"
+    x-on:mouseenter="menu = false"
+    x-bind:class="{
 'opacity-100 pointer-events-auto' : menu != false && menu != 'mobileMenu',
 'opacity-0 pointer-events-none' : !menu || menu == 'mobileMenu',
 'pointer-events-auto opacity-0' : menu == 'mobileMenu',
 }"
->
+  >
+  </div>
 </div>
