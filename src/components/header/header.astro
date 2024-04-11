@@ -151,8 +151,45 @@ const pathname = new URL(Astro.request.url).pathname;
           }
         </ul>
       </nav>
-      <div class="pr-2 inline-flex items-center relative z-10">
-        <ButtonLink href="/kontakt"> Jetzt Angebot anfordern </ButtonLink>
+      <div class="inline-flex items-center relative z-10 lg:space-x-2">
+        <div class="inline-flex lg:hidden">
+          <button
+            class="inline-flex items-center justify-center w-10 h-12"
+            type="button"
+            x-on:click.prevent="menu == 'mobileMenu' ? menu = false : menu = 'mobileMenu'"
+          >
+            <div class="sr-only">Navigation Öffnen</div>
+            <div class="flex w-5 h-3.5 flex-col items-start justify-between">
+              <span
+                class="w-full h-0.5 transition-transform duration-500 transform rotate-0"
+                x-bind:class="{'transform rotate-45 translate-y-1.5': menu == 'mobileMenu', 'transform rotate-0': menu != 'mobileMenu'}"
+              >
+                <div class="w-full h-0.5 bg-foreground"></div>
+              </span>
+              <span
+                class="w-full h-0.5 transition-opacity duration-300 opacity-100"
+                x-bind:class="{'opacity-0': menu == 'mobileMenu', 'opacity-100': menu != 'mobileMenu'}"
+              >
+                <div class="w-full h-0.5 bg-foreground"></div>
+              </span>
+              <span
+                class="w-full h-0.5 transition-transform duration-500 transform rotate-0"
+                x-bind:class="{'transform -rotate-45 -translate-y-1.5': menu == 'mobileMenu', 'transform rotate-0': menu != 'mobileMenu'}"
+              >
+                <div class="w-full h-0.5 bg-foreground"></div>
+              </span>
+            </div>
+          </button>
+        </div>
+        <div class="hidden lg:inline-flex">
+          <ButtonLink href="/kontakt"> Jetzt Angebot anfordern </ButtonLink>
+        </div>
+      </div>
+      <div
+        class="w-full relative z-10 lg:hidden"
+        x-bind:class="{'pointer-events-none': menu != 'mobileMenu'}"
+      >
+        mobilemenu
       </div>
     </div>
   </header>
