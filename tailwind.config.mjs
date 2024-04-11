@@ -26,6 +26,9 @@ export default {
       maxWidth: {
         "8xl": "96rem", // better support for large screens
       },
+      boxShadow: {
+        "3xl": "0 0 60px -15px rgba(0,0,0,0.2)",
+      },
       typography: (theme) => {
         const fontSize = (size) => {
           const result = theme(`fontSize.${size}`);
@@ -211,6 +214,12 @@ export default {
             },
           },
         };
+      },
+      width: {
+        "44rem": "44rem",
+      },
+      zIndex: {
+        menu: "101",
       },
     },
   },

@@ -1,17 +1,142 @@
 ---
 import { cn } from "@utils/classes";
-import Navbar from "./navbar.astro";
+import Topbar from "./topbar.astro";
+import { config, menu } from "@config/index";
+import Logo from "@components/logo.astro";
+import ButtonLink from "@components/button/button-link.astro";
+
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<header
-  id="header"
-  class={cn(
-    "absolute z-10 w-full min-h-0",
-    "top-0 md:top-auto",
-    "transition-[opacity] ease-in-out"
-  )}
+<script>
+  import Alpine from "alpinejs";
+
+  document.addEventListener("alpine:init", () => {
+    Alpine.data("header", () => ({
+      menu: false,
+      toggleMenu() {
+        this.menu = !this.menu;
+      },
+    }));
+  });
+</script>
+
+<div
+  class="relative bg-white z-10"
+  x-data="header"
+  x-on:scroll.window="menu = false"
+  x-on:keydown.escape.window="menu = false"
 >
-  <div class="mx-auto px-5vw max-w-8xl">
-    <Navbar />
+  <div class="z-50 bg-white">
+    <header id="header" class={cn("z-30 relative bg-white")}>
+      <Topbar />
+      <div
+        class="px-5vw mx-auto max-w-8xl flex flex-wrap items-center justify-between w-full bg-transparent"
+      >
+        <div class="ml-2 z-10 py-2">
+          <a href="/" class="flex items-center">
+            <span class="sr-only" itemprop="name">
+              {config.site.title}
+            </span>
+            <Logo />
+          </a>
+        </div>
+        <nav class="hidden lg:inline-flex">
+          <ul class="flex space-x-7 xl:space-x-10">
+            {
+              menu.map((m, idx) => (
+                <li class="">
+                  <a
+                    href={m.path}
+                    class={cn(
+                      "flex items-center gap-x-1 text-sm font-semibold leading-6 text-foreground",
+                      "underlined",
+                      pathname === m.path && "is--active"
+                    )}
+                    role="menuitem"
+                    x-on:mouseenter={
+                      m.children ? `menu = ${idx + 1}` : `menu = false`
+                    }
+                  >
+                    {m.title}
+
+                    {m.children && (
+                      <svg
+                        class="h-5 w-5 flex-none text-gray-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    )}
+                  </a>
+                  {m.children && (
+                    <div
+                      x-show={`menu == ${idx + 1}`}
+                      x-transition-enter="transition ease-out duration-200"
+                      x-transition:enter-start="opacity-0 -translate-y-1"
+                      x-transition:enter-end="opacity-100 translate-y-0"
+                      x-transition:leave="transition ease-in duration-150"
+                      x-transition:leave-start="opacity-100 translate-y-0"
+                      x-transition:leave-end="opacity-0 -translate-y-1"
+                      class={cn(
+                        "absolute inset-x-0 top-full z-50 bg-white pt-14 border-x border-b border-gray-900/5"
+                      )}
+                      x-ref="panel"
+                    >
+                      <div
+                        class={cn(
+                          "mx-auto grid max-w-8xl grid-cols-4 gap-x-4 px-5vw py-10  xl:gap-x-8"
+                        )}
+                      >
+                        {m.children.map((c) => (
+                          <div
+                            class={cn(
+                              "group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50"
+                            )}
+                          >
+                            <div class="h-full flex flex-col">
+                              <a
+                                href={c.path}
+                                class="font-semibold text-gray-900"
+                              >
+                                {c.title}
+                                <span class="absolute inset-0" />
+                              </a>
+                              <p class="mt-1 text-gray-600 text-sm">
+                                {c.description}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+        <div class="pr-2 inline-flex items-center relative z-10">
+          <ButtonLink href="/kontakt"> Jetzt Angebot anfordern </ButtonLink>
+        </div>
+      </div>
+    </header>
   </div>
-</header>
+  <div
+    class="w-full h-full transition-all duration-300 fixed top-0 left-0 z-10 hidden lg:block pointer-events-none opacity-0 backdrop-blur-md bg-white/30"
+    x-on:click="menu = false"
+    x-on:mouseenter="menu = false"
+    x-bind:class="{
+'opacity-100 pointer-events-auto' : menu != false && menu != 'mobileMenu',
+'opacity-0 pointer-events-none' : !menu || menu == 'mobileMenu',
+'pointer-events-auto opacity-0' : menu == 'mobileMenu',
+}"
+  >
+  </div>
+</div>
