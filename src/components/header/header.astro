@@ -185,14 +185,139 @@ const pathname = new URL(Astro.request.url).pathname;
           <ButtonLink href="/kontakt"> Jetzt Angebot anfordern </ButtonLink>
         </div>
       </div>
-      <div
-        class="w-full relative z-10 lg:hidden"
-        x-bind:class="{'pointer-events-none': menu != 'mobileMenu'}"
-      >
-        mobilemenu
-      </div>
     </div>
   </header>
+
+  <div
+    @keydown.window.escape="menu = false"
+    x-show="menu == 'mobileMenu'"
+    class="relative z-menu"
+    x-ref="dialog"
+    aria-modal="true"
+  >
+    <div
+      x-show="menu == 'mobileMenu'"
+      x-transition:enter="ease-in-out duration-500"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="ease-in-out duration-500"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+    >
+    </div>
+
+    <div class="fixed inset-0 overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden">
+        <div
+          class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
+        >
+          <div
+            class="pointer-events-auto w-screen max-w-md"
+            x-show="menu == 'mobileMenu'"
+            aria-model="true"
+            x-transition-enter="transform transition ease-in-out duration-500 sm:duration-700"
+            x-transition:enter-start="translate-x-full"
+            x-transition:enter-end="translate-x-0"
+            x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
+            x-transition:leave-start="translate-x-0"
+            x-transition:leave-end="translate-x-full"
+            @click.away="menu = false"
+          >
+            <div
+              class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl px-5vw"
+            >
+              <div class="flex items-center justify-end">
+                <button
+                  class="inline-flex items-center justify-center w-10 h-12"
+                  type="button"
+                  x-on:click.prevent="menu == 'mobileMenu' ? menu = false : menu = 'mobileMenu'"
+                >
+                  <div class="sr-only">Navigation Öffnen</div>
+                  <div
+                    class="flex w-5 h-3.5 flex-col items-start justify-between"
+                  >
+                    <span
+                      class="w-full h-0.5 transition-transform duration-500 transform rotate-0"
+                      x-bind:class="{'transform rotate-45 translate-y-1.5': menu == 'mobileMenu', 'transform rotate-0': menu != 'mobileMenu'}"
+                    >
+                      <div class="w-full h-0.5 bg-foreground"></div>
+                    </span>
+                    <span
+                      class="w-full h-0.5 transition-opacity duration-300 opacity-100"
+                      x-bind:class="{'opacity-0': menu == 'mobileMenu', 'opacity-100': menu != 'mobileMenu'}"
+                    >
+                      <div class="w-full h-0.5 bg-foreground"></div>
+                    </span>
+                    <span
+                      class="w-full h-0.5 transition-transform duration-500 transform rotate-0"
+                      x-bind:class="{'transform -rotate-45 -translate-y-1.5': menu == 'mobileMenu', 'transform rotate-0': menu != 'mobileMenu'}"
+                    >
+                      <div class="w-full h-0.5 bg-foreground"></div>
+                    </span>
+                  </div>
+                </button>
+              </div>
+              <div class="mt-6 flow-root">
+                {
+                  menu.map((item, idx) => {
+                    if (item.children) {
+                      return (
+                        <div x-data="{open: false}" class="-mx-3">
+                          <button
+                            type="button"
+                            class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-foreground hover:text-foreground/80"
+                            aria-expanded="true"
+                            x-bind:aria-expanded="open.toString()"
+                            @click="open = !open"
+                          >
+                            {item.title}
+                            <svg
+                              class="h-5 w-5 flex-none rotate-180"
+                              x-state:on="Open"
+                              x-state:off="Closed"
+                              x-bind:class="{ 'rotate-180': open }"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                          </button>
+                          <div class="mt-2 space-y-2" x-show="open">
+                            {item.children.map((child) => (
+                              <a class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-foreground hover:text-foreground/80">
+                                {child.title}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <a
+                        href="#"
+                        class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-foreground hover:text-foreground/80"
+                      >
+                        {item.title}
+                      </a>
+                    );
+                  })
+                }
+                <ul class="list-none"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div
     class="w-full h-full transition-all duration-300 fixed top-0 left-0 z-10 hidden lg:block pointer-events-none opacity-0 backdrop-blur-md bg-white/30"
     x-on:click="menu = false"
