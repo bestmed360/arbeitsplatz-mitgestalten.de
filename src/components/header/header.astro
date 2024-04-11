@@ -203,7 +203,7 @@ const pathname = new URL(Astro.request.url).pathname;
       x-transition:leave="ease-in-out duration-500"
       x-transition:leave-start="opacity-100"
       x-transition:leave-end="opacity-0"
-      class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+      class="fixed inset-0 bg-white bg-opacity-30 backdrop-blur-sm transition-opacity"
     >
     </div>
 
@@ -260,7 +260,7 @@ const pathname = new URL(Astro.request.url).pathname;
               </div>
               <div class="mt-6 flow-root">
                 {
-                  menu.map((item, idx) => {
+                  menu.map((item) => {
                     if (item.children) {
                       return (
                         <div x-data="{open: false}" class="-mx-3">
@@ -309,7 +309,6 @@ const pathname = new URL(Astro.request.url).pathname;
                     );
                   })
                 }
-                <ul class="list-none"></ul>
               </div>
             </div>
           </div>
