@@ -220,6 +220,7 @@ export default {
       },
       zIndex: {
         menu: "101",
+        header: "102",
       },
     },
   },
