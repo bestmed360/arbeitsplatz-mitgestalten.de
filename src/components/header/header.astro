@@ -160,11 +160,7 @@ const pathname = new URL(Astro.request.url).pathname;
     class="w-full h-full transition-all duration-300 fixed top-0 left-0 z-10 hidden lg:block pointer-events-none opacity-0 backdrop-blur-md bg-white/30"
     x-on:click="menu = false"
     x-on:mouseenter="menu = false"
-    x-bind:class="{
-'opacity-100 pointer-events-auto' : menu != false && menu != 'mobileMenu',
-'opacity-0 pointer-events-none' : !menu || menu == 'mobileMenu',
-'pointer-events-auto opacity-0' : menu == 'mobileMenu',
-}"
+    x-bind:class="{'opacity-100 pointer-events-auto' : menu != false && menu != 'mobileMenu','opacity-0 pointer-events-none' : !menu || menu == 'mobileMenu','pointer-events-auto opacity-0' : menu == 'mobileMenu'}"
   >
   </div>
 </div>
